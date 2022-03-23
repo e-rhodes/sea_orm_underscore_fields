@@ -1,0 +1,19 @@
+[package]
+name = "sea_orm_struct_fields_with_underscores_issue"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "^1"
+tokio = { version = "^1", features = ["rt", "rt-multi-thread", "macros"] }
+
+[dependencies.sea-orm]
+version = "^0.6"
+default-features = false
+features = ["macros", "runtime-tokio-native-tls", "debug-print", "with-json", "with-chrono"]
+
+[features]
+default = ["sqlx-mysql"]
+sqlx-mysql = ["sea-orm/sqlx-mysql"]
